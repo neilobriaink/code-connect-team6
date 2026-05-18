@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Details</title>
+  </head>
+  <body>
+    <% if(!employee) { %>
+      <div>
+        <h1>Employee not found</h1>
+      </div>
+    <%} else { %>
+      <div>
+        <h1><%= employee.name %> Details:</h1>
+        <p>Name: <%= employee.name %></p>
+        <p>Address: <%= employee.address %></p>
+        <p>Salary: £<%= employee.salary.toLocaleString() %></p>
+        <p>Role: <%= employee.role %></p>
+        <p>Employee Number: <%= employee.employeeNumber %></p>
+    </div>
+   <% } %>
+    
+  </body>
+</html>

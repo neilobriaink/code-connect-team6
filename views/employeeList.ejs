@@ -15,6 +15,7 @@
           <th>Salary</th>
           <th>Role</th>
           <th></th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -26,9 +27,14 @@
             <td>£<%= employee.salary.toLocaleString() %></td>
             <td><%= employee.role %></td>
             <td><a href="/employees/update/<%= employee.employeeNumber %>">Edit</a></td>
+            <td><a href="/employees/<%= employee.employeeNumber %>">View</a></td>
           </tr>
         <% }) %>
       </tbody>
     </table>
+
+      <form action="/employees/add" method="get">
+        <input type="submit" value="Create New Employee">
+    </form> 
   </body>
 </html>

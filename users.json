@@ -3,6 +3,7 @@
     "id": 1,
     "name": "Test",
     "email": "test@test.com",
+    "password": "$2b$10$Ip4kyVFpfsf8AX/NnT/NPe/XtGBVI4UC.1vTCDRAL.re28/HCsNWm",
     "role": "Software Engineer"
   }
 ]

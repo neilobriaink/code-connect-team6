@@ -7,17 +7,27 @@
     "role": "Software Engineer"
   },
   {
-    "employeeNumber": 1002,
-    "name": "Bob Smith",
-    "address": "34 High Street, Edinburgh, EH1 1YZ",
-    "salary": 55000,
-    "role": "Senior Consultant"
+    "name": "Jordan Patel",
+    "address": "212 Birch Road",
+    "salary": 54000,
+    "role": "Software Engineer",
+    "employeeNumber": "00002",
+    "id": 2
   },
   {
-    "employeeNumber": 1003,
-    "name": "Carol White",
-    "address": "56 Park Avenue, London, SW1A 1AA",
-    "salary": 65000,
-    "role": "Project Manager"
+    "name": "Sophie Bennett",
+    "address": "8 Orchard Lane",
+    "salary": 38000,
+    "role": "Support Specialist",
+    "employeeNumber": "00003",
+    "id": 3
+  },
+  {
+    "name": "Alanna Toner",
+    "address": "567 Road",
+    "salary": "20000",
+    "role": "Tester",
+    "id": 4,
+    "employeeNumber": "00004"
   }
 ]

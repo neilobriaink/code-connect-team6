@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <form action="/users/login" method="post">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Password:</label><br>
+        <input 
+            type="password" 
+            id="password" 
+            name="password"
+            pattern="^(?=.*[!@#$%^&*]).{8,}$"
+            title="Password must be at least 8 characters long and include at least one special character.", 
+            required><br>
+
+        <input type="submit" value="Submit">
+    </form> 
+
+    <% if (errors && errors.length > 0) { %>
+        <div>
+            <div class="error-message">
+                <h3><%= errors %></h3>
+            </div>
+        </div>
+    <% } %>
+    
+</body>
+</html>
