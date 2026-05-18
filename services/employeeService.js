@@ -35,8 +35,10 @@ class EmployeeService {
         };
         fs.writeFileSync(this.filePath, JSON.stringify(employees, null, 2), 'utf8');
         return employees[index];
+    }
+
     // Helper function to write users to JSON file
-     writeEmployees(employees) {
+    writeEmployees(employees) {
         try {
               fs.writeFileSync(this.filePath, JSON.stringify(employees, null, 2), 'utf8');
          } catch (err) {

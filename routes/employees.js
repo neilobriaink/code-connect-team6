@@ -21,6 +21,8 @@ router.post('/update/:employeeNumber', (req, res) => {
     const updatedEmployee = employeeService.updateEmployee(parseInt(req.params.employeeNumber), req.body);
     if (!updatedEmployee) return res.status(404).send('Employee not found');
     res.redirect('/employees');
+});
+
 // Create a new employee form
 router.get('/add', (req, res) => {
   res.render('addEmployee')
