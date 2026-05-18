@@ -8,6 +8,7 @@
 </head>
 <body>
     <div>
+        <h1>Login</h1>
         <form action="/users/login" method="post">
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" required><br>
@@ -22,12 +23,21 @@
             required><br>
 
         <input type="submit" value="Submit">
+
+        <a href="/users/create-account">Create Account</a>
     </form> 
 
     <% if (errors && errors.length > 0) { %>
         <div>
             <div class="error-message">
                 <h3><%= errors %></h3>
+            </div>
+        </div>
+    <% } %>
+    <% if (success && success.length > 0) { %>
+        <div>
+            <div class="success-message">
+                <h3><%= success %></h3>
             </div>
         </div>
     <% } %>
