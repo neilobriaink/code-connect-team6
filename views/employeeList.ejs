@@ -14,6 +14,7 @@
           <th>Address</th>
           <th>Salary</th>
           <th>Role</th>
+          <th></th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -25,6 +26,7 @@
             <td><%= employee.address %></td>
             <td>£<%= employee.salary.toLocaleString() %></td>
             <td><%= employee.role %></td>
+            <td><a href="/employees/update/<%= employee.employeeNumber %>">Edit</a></td>
             <td><a href="/employees/<%= employee.employeeNumber %>">View</a></td>
           </tr>
         <% }) %>
