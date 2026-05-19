@@ -16,8 +16,29 @@ class EmployeeService {
         }
     }
 
+    getEmployeeByNumber(employeeNumber) {
+        const employees = this.getEmployees();
+        return employees.find(emp => emp.employeeNumber === employeeNumber);
+    }
+
+    updateEmployee(employeeNumber, updatedData) {
+        const employees = this.getEmployees();
+        const index = employees.findIndex(emp => emp.employeeNumber === employeeNumber);
+        if (index === -1) return null;
+
+        employees[index] = {
+            employeeNumber: employeeNumber,
+            name: updatedData.name,
+            address: updatedData.address,
+            salary: parseFloat(updatedData.salary),
+            role: updatedData.role
+        };
+        fs.writeFileSync(this.filePath, JSON.stringify(employees, null, 2), 'utf8');
+        return employees[index];
+    }
+
     // Helper function to write users to JSON file
-     writeEmployees(employees) {
+    writeEmployees(employees) {
         try {
               fs.writeFileSync(this.filePath, JSON.stringify(employees, null, 2), 'utf8');
          } catch (err) {

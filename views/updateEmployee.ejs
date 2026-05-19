@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Employee</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <h1>Update Employee</h1>
+
+    <form action="/employees/update/<%= employee.employeeNumber %>" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" value="<%= employee.name %>"><br>
+
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address" value="<%= employee.address %>"><br>
+
+        <label for="salary">Salary:</label><br>
+        <input type="number" id="salary" name="salary" value="<%= employee.salary %>"><br>
+
+        <label for="role">Role:</label><br>
+        <input type="text" id="role" name="role" value="<%= employee.role %>"><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
