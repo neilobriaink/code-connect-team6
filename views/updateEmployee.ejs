@@ -20,7 +20,12 @@
         <input type="number" id="salary" name="salary" value="<%= employee.salary %>"><br>
 
         <label for="role">Role:</label><br>
-        <input type="text" id="role" name="role" value="<%= employee.role %>"><br>
+        <select id="role" name="role" required>
+          <option value="">-- Select a role --</option>
+          <% jobRoles.forEach(jobRole => { %>
+            <option value="<%= jobRole.name %>" <%= employee.role === jobRole.name ? 'selected' : '' %>><%= jobRole.name %></option>
+          <% }) %>
+        </select><br>
 
         <input type="submit" value="Submit">
     </form>

@@ -1,11 +1,11 @@
 [
   {
+    "id": 1,
+    "employeeNumber": "00001",
     "name": "Alice Johnson",
     "address": "12 Main Street, Belfast, BT1 1AA",
     "salary": 4500000000000,
-    "role": "Software Engineer",
-    "employeeNumber": "00001",
-    "id": 1
+    "role": "Product Consultant"
   },
   {
     "name": "Jordan Patel",
