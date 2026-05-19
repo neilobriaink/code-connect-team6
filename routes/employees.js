@@ -9,23 +9,23 @@ router.get('/', (req, res) => {
     res.render('employeeList', { employees });
 });
 
+// Create a new employee form
+router.get('/add', (req, res) => {
+  res.render('addEmployee')
+});
+
 // Update an employee by employee number form
 router.get('/update/:employeeNumber', (req, res) => {
     const employee = employeeService.getEmployeeByNumber(parseInt(req.params.employeeNumber));
     if (!employee) return res.status(404).send('Employee not found');
     res.render('updateEmployee', { employee });
 });
-
+ 
 // Update an employee by employee number
 router.post('/update/:employeeNumber', (req, res) => {
     const updatedEmployee = employeeService.updateEmployee(parseInt(req.params.employeeNumber), req.body);
     if (!updatedEmployee) return res.status(404).send('Employee not found');
     res.redirect('/employees');
-});
-
-// Create a new employee form
-router.get('/add', (req, res) => {
-  res.render('addEmployee')
 });
 
 function validateEmployee(req, res, next) {
@@ -51,13 +51,20 @@ router.post('/add', validateEmployee, (req, res) => {
   res.redirect('/employees/');
 });
 
+// Delete an employee
+router.post('/delete/:id', (req, res) => {
+  const deleted = employeeService.deleteEmployee(parseInt(req.params.id));
+  if (!deleted) return res.status(404).send('Employee not found');
+  res.redirect('/employees');
+});
+
 router.get('/:id', (req, res) => {
     const employee = employeeService.getEmployeeById(req.params.id);
-    
+   
     if (!employee) {
         return res.redirect('/employees');
     }
-
+ 
     res.render('employeeDetails', { employee });
 });
 
