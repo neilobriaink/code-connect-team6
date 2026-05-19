@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Job Role</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <h1>Add New Job Role</h1>
+
+    <form action="/roles/job-role" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="level">Level:</label><br>
+        <input type="text" id="level" name="level" required><br>
+
+        <label for="capability">Capability:</label><br>
+        <input type="text" id="capability" name="capability" required><br>
+
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" required></textarea><br>
+
+        <input type="submit" value="Create Job Role">
+    </form>
+
+    <a href="/roles">Back to Job Roles</a>
+</body>
+</html>
