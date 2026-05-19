@@ -23,4 +23,13 @@ router.post('/job-role', (req, res) => {
     res.redirect('/roles');
 });
 
+// Delete a job role and unassign affected employees
+router.post('/delete/:id', (req, res) => {
+    const deleted = rolesService.deleteJobRole(parseInt(req.params.id));
+    if (!deleted) return res.status(404).send('Job role not found');
+    employeeService.unassignRole(deleted.name);
+    res.redirect('/roles');
+});
+ 
+
 module.exports = router;

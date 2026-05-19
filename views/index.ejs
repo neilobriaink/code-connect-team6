@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitment Dash</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <a href="/users/login" class="button">Login</a>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <a href="/" class="brand-link">
+            <img src="/media/Kainos_logo_1024X512-1643380451515.webp" alt="Kainos Logo" class="brand-logo">
+          </a>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <section class="hero">
+        <h1>Kainos Recruitment Dashboard</h1>
+        <p>Please log in or sign up below</p>
+        <div class="hero-buttons">
+          <a href="/users/login" class="button">Login</a>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Kainos</h3>
+            <p>Digital transformation and software engineering solutions.</p>
+          </div>
+          <div class="footer-section">
+            <h3>Contact</h3>
+            <ul>
+              <li>Email: <a href="mailto:info@kainos.com">info@kainos.com</a></li>
+              <li>Phone: <a href="tel:+442890490490">+44 (0)28 9049 0490</a></li>
+              <li>Address: Unit 4000, DBC, 120 Midsummer Boulevard, Milton Keynes MK9 2EA</li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Follow Us</h3>
+            <ul>
+              <li><a href="#">LinkedIn</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Kainos Software. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

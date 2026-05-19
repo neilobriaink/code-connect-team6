@@ -12,6 +12,11 @@ router.get('/', (req, res) => {
     res.render('employeeList', { employees });
 });
 
+/* GET dashboard page. */
+router.get('/dashboard', (req, res, next) => {
+  res.render('dashboard');
+});
+
 // Create a new employee form
 router.get('/add', (req, res) => {
   const jobRoles = jobRolesService.getJobRoles();

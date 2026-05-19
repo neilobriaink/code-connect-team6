@@ -57,8 +57,14 @@ router.post("/login", async (req, res) => {
         errors: ["Invalid Email or Password!"],
       });
     }
+      req.session.user = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role
+    };
 
-    return res.redirect("/employees");
+    return res.redirect("../employees/dashboard");
 
   } catch (error) {
     return res.render("login", {
@@ -67,13 +73,24 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post('/logout', (req, res) => {
+  if (req.session) {
+    req.session.destroy(err => {
+      if (err) {
+        console.error('Session destroy error:', err);
+      }
+      res.redirect('/');
+    });
+  } else {
+    res.redirect('/');
+}});
 //Create Account
   router.get("/create-account", (req, res) =>{
     res.render(
       'createAccount',
       {errors: [] }
     )
-  })
+  });
 
   router.post("/create-account", async (req, res) =>{
     const { name, email, password, passwordCheck } = req.body
