@@ -41,8 +41,13 @@
         <label for="salary">Salary:</label>
         <input type="number" id="salary" name="salary" value="<%= employee.salary %>">
 
-        <label for="role">Role:</label>
-        <input type="text" id="role" name="role" value="<%= employee.role %>">
+        <label for="role">Role:</label><br>
+        <select id="role" name="role" required>
+          <option value="">-- Select a role --</option>
+          <% jobRoles.forEach(jobRole => { %>
+            <option value="<%= jobRole.name %>" <%= employee.role === jobRole.name ? 'selected' : '' %>><%= jobRole.name %></option>
+          <% }) %>
+        </select><br>
 
         <div class="hero-buttons">
           <input type="submit" value="Update Employee" class="button">

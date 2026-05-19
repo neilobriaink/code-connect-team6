@@ -37,7 +37,12 @@
         <input type="number" min="0" id="salary" name="salary" required><br>
 
         <label for="role">Role:</label><br>
-        <input type="text" id="role" name="role" required ><br>
+        <select id="role" name="role" required>
+          <option value="">-- Select a role --</option>
+          <% jobRoles.forEach(jobRole => { %>
+            <option value="<%= jobRole.name %>" <%= (formData && formData.role === jobRole.name) ? 'selected' : '' %>><%= jobRole.name %></option>
+          <% }) %>
+        </select><br>
 
 
         <input type="submit" value="Submit">

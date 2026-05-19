@@ -24,39 +24,46 @@
       </div>
     </nav>
     <main>
-      <h1>User List</h1>
+      <section class="hero">
+        <h1>Admin List</h1>
+        <p>Browse and manage current admins.</p>
+      </section>
 
-    <% if (users && users.length > 0) { %>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th colspan="3">Actions</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <% users.forEach(user => { %>
+      <section class="feature-card">
+        <% if (users && users.length > 0) { %>
+            <table>
+                <thead>
                     <tr>
-                        <td><%= user.name %></td>
-                        <td><%= user.email %></td>
-                        <td><%= user.role %></td>
-                        <td><a href="/users/<%= user.id %>" class="button">View</a></td>
-                        <td><a href="/users/update/<%= user.id %>" class="button">Edit</a></td>
-                        <td><a href="/users/delete/<%= user.id %>" class="button">Delete</a></td>
-                    </tr>
-                <% }); %>
-            </tbody>
-        </table>
-    <% } else { %>
-        <p>No users found.</p>
-    <% } %>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th colspan="3">Actions</th>
 
-      <form action="/users/add" method="get">
-        <input type="submit" value="Create New User">
-      </form>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user => { %>
+                        <tr>
+                            <td><%= user.name %></td>
+                            <td><%= user.email %></td>
+                            <td><%= user.role %></td>
+                            <td><a href="/users/<%= user.id %>" class="button">View</a></td>
+                            <td><a href="/users/update/<%= user.id %>" class="button">Edit</a></td>
+                            <td><a href="/users/delete/<%= user.id %>" class="button">Delete</a></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No users found.</p>
+        <% } %>
+
+    <div class="center-wrapper">
+      <div class="hero-buttons" style="margin-top: 20px; justify-content: flex-start;">
+        <a href="/users/add" class="button">Create New User</a>
+      </div>
+    </div>
+
     </main>
     <footer class="footer">
       <div class="footer-container">

@@ -247,6 +247,14 @@ form {
   max-width: 500px;
 }
 
+table form {
+  background: none;
+  padding: 0;
+  box-shadow: none;
+  max-width: none;
+}
+
+
 form label {
   display: block;
   margin-top: 15px;

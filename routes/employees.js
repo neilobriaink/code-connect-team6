@@ -4,6 +4,9 @@ var router = express.Router();
 const EmployeeService = require('../services/employeeService');
 const employeeService = new EmployeeService();
 
+const JobRolesService = require('../services/jobRolesService');
+const jobRolesService = new JobRolesService();
+
 router.get('/', (req, res) => {
     const employees = employeeService.getEmployees();
     res.render('employeeList', { employees });
@@ -11,14 +14,16 @@ router.get('/', (req, res) => {
 
 // Create a new employee form
 router.get('/add', (req, res) => {
-  res.render('addEmployee')
+  const jobRoles = jobRolesService.getJobRoles();
+  res.render('addEmployee', { jobRoles });
 });
 
 // Update an employee by id form
 router.get('/update/:id', (req, res) => {
     const employee = employeeService.getEmployeeById(parseInt(req.params.id));
     if (!employee) return res.status(404).send('Employee not found');
-    res.render('updateEmployee', { employee });
+    const jobRoles = jobRolesService.getJobRoles();
+    res.render('updateEmployee', { employee, jobRoles });
 });
 
 // Update an employee by id
@@ -29,16 +34,19 @@ router.post('/update/:id', (req, res) => {
 });
 
 function validateEmployee(req, res, next) {
-  const { name, address, salary, role, employeeNum } = req.body;
+  const { name, address, salary, role } = req.body;
   const errors = [];
 
   if (!name) errors.push('Name is required');
   if (!address) errors.push('Address is required');
   if (!salary || isNaN(Number(salary))) errors.push('Salary must be a number');
-  if (!role) errors.push('Role is required');
+
+  const jobRoles = jobRolesService.getJobRoles();
+  const validRole = jobRoles.find(r => r.name === role);
+  if (!validRole) errors.push('A valid job role must be selected');
 
   if (errors.length) {
-    return res.render('addEmployee', { errors, formData: req.body });
+    return res.render('addEmployee', { errors, formData: req.body, jobRoles });
   }
 
   next();
