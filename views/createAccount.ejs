@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        
+        <h1>Create Account</h1>
+
+        <form action="/users/create-account" method="post">
+
+        <label for="name">Name:</label><br>
+        <input 
+            type="text" 
+            id="name" 
+            name="name"
+            pattern="\s*[A-Za-z]+ [A-Za-z]+\s*"
+            title="Must enter a first and last name!"
+            required
+        ><br>
+
+        <label for="email">Email:</label><br>
+        <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required
+        ><br>
+
+        <label for="password">Password:</label><br>
+        <input 
+            type="password" 
+            id="password" 
+            name="password"
+            pattern="^(?=.*[!@#$%^&*]).{8,}$"
+            title="Password must be at least 8 characters long and include at least one special character."
+            required
+        ><br>
+
+        <label for="passwordCheck">Confirm Password:</label><br>
+        <input 
+            type="password" 
+            id="passwordCheck" 
+            name="passwordCheck"
+            pattern="^(?=.*[!@#$%^&*]).{8,}$"
+            title="Password must be at least 8 characters long and include at least one special character."
+            required
+        ><br>
+
+        <input type="submit" value="Submit">
+
+        <a href="/users/login">Login</a>
+
+        </form>
+
+        <% if (errors && errors.length > 0) { %>
+            <div>
+                <div class="error-message">
+                    <h3><%= errors %></h3>
+                </div>
+            </div>
+        <% } %>
+    
+</body>
+</html>

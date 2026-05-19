@@ -5,5 +5,12 @@
     "email": "test@test.com",
     "password": "$2b$10$Ip4kyVFpfsf8AX/NnT/NPe/XtGBVI4UC.1vTCDRAL.re28/HCsNWm",
     "role": "Software Engineer"
+  },
+  {
+    "id": 2,
+    "name": "Harry Horder",
+    "email": "harryhorder@gmail.com",
+    "password": "$2b$10$iUsH4uyOmoF5AGAqMS4xmuxJKAtFkfl7KvypBZxzCEqVA5pub0Y9.",
+    "role": "Software Developer"
   }
 ]

@@ -6,8 +6,14 @@
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<%
+  const successMessage = typeof success !== "undefined" ? success : null;
+  const errorList = typeof errors !== "undefined" ? errors : [];
+%>
 <body>
     <div>
+        <h1>Login</h1>
+        <div>
         <form action="/users/login" method="post">
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" required><br>
@@ -22,15 +28,26 @@
             required><br>
 
         <input type="submit" value="Submit">
+        <a href="/users/create-account">Create Account</a>
     </form> 
 
-    <% if (errors && errors.length > 0) { %>
+    <% if (errorList && errorList.length > 0) { %>
+            <div>
+                <div class="error-message">
+                <% errorList.forEach(error => { %>
+                    <h3><%= error %></h3>
+                <% }) %>
+                </div>
+            </div>
+        <% } %>
+
+    <% if (successMessage) { %>
         <div>
-            <div class="error-message">
-                <h3><%= errors %></h3>
+            <div class="success-message">
+                <h3><%= successMessage %></h3>
             </div>
         </div>
     <% } %>
-    
+
 </body>
 </html>
